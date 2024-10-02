@@ -1,0 +1,27 @@
+<!-- res/drawable/stacked_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main Background Color (Optional) -->
+    <item>
+        <color android:color="#5F8967" /> <!-- The base background color -->
+    </item><!-- First SVG Layer (Bottom) -->
+
+
+    <!-- Second SVG Layer (Middle) -->
+
+    <item android:drawable="@drawable/vector_8"
+        android:bottom="-60dp"
+        android:right="-60dp"
+        android:top="00dp"
+        android:left="-60dp"
+        android:alpha="0.42"/>
+
+    <!-- Third SVG Layer (Top) -->
+    <item android:drawable="@drawable/vector_9"
+        android:top="100dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:bottom="0dp"
+        />
+
+</layer-list>
