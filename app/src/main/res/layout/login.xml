@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/arch_backgorund"
     app:layout_marginBaseline="10dp"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
 
     <TextView
         android:id="@+id/tdt_login"
-        android:layout_width="277dp"
-        android:layout_height="58dp"
+        android:layout_width="315dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="280dp"
         android:fontFamily="@font/fredoka_one"
-        android:text="TO DO TIDE"
+        android:text="@string/to_do_tide"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,11 +28,11 @@
     <Button
         android:id="@+id/tdt_login_button"
         android:layout_width="139dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="300dp"
         android:backgroundTint="#E8EF8C"
         android:fontFamily="@font/fredoka_medium"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#020202"
         android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,13 +44,12 @@
         android:id="@+id/inputUsrnPwLayout"
         style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
         android:layout_width="248dp"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="#F17878"
-        android:hint="ex: hiroki"
-        app:errorIconTint="#8E5555"
+        android:hint="@string/username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +58,29 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputUsrnPwEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
 
