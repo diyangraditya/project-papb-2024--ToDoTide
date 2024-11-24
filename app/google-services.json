@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "606342319913",
+    "firebase_url": "https://to-do-tide-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "to-do-tide",
+    "storage_bucket": "to-do-tide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606342319913:android:12a49a43f78cd59a5d3138",
+        "android_client_info": {
+          "package_name": "dra.mobile.todotide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyConLFOsVJaXYbhhCWNjYimopnT4PD8PpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

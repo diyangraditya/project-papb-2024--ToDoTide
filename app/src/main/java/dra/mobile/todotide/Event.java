@@ -1,29 +1,25 @@
 package dra.mobile.todotide;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-@Entity(tableName = "events")
 public class Event {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-
+    private String id;
     private String title;
     private String date;
     private String location;
 
-    // Constructor, Getters, and Setters
-    public Event(String title, String date, String location) {
+    public Event(){}
+
+    public Event(String id, String title, String date, String location) {
+        this.id = id;
         this.title = title;
         this.date = date;
         this.location = location;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class EventAdapterCale extends RecyclerView.Adapter<EventAdapterCale.EventViewHolder>{
+public class EventAdapterCale extends RecyclerView.Adapter<EventAdapterCale.EventViewHolder> {
     private List<Event> eventList;
     private DeleteEventListener deleteListener;
 
@@ -64,3 +64,4 @@ public class EventAdapterCale extends RecyclerView.Adapter<EventAdapterCale.Even
         }
     }
 }
+
