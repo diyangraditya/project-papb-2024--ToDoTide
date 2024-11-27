@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "726151846070",
+    "firebase_url": "https://todotide-ec597-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "todotide-ec597",
+    "storage_bucket": "todotide-ec597.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726151846070:android:75705ec8825d1f5107ee17",
+        "android_client_info": {
+          "package_name": "com.example.project3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKl8sFZcz3wSm1hONvf4-wxzdu9ssHreI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
