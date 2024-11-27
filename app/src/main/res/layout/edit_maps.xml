@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".MapsEditFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerCardView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:cardBackgroundColor="#A4D99F"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="8dp">
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Edit Map Details"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toTopOf="@id/headerCardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tombol_back"
+        android:contentDescription="Back Button" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="280dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@+id/headerCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:srcCompat="@drawable/baseline_location_on_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:srcCompat="@drawable/baseline_camera_alt_24"
+        android:contentDescription="Camera Button" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/locationCardView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#A4D99F"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        app:cardElevation="4dp">
+
+        <EditText
+            android:id="@+id/etLokasi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Location"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#E0E0E0"
+            android:textSize="16sp"
+            android:paddingStart="16dp"
+            android:background="@null" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activityCardView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#A4D99F"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@id/locationCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        app:cardElevation="4dp">
+
+        <EditText
+            android:id="@+id/etKegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Activity"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#E0E0E0"
+            android:textSize="16sp"
+            android:paddingStart="16dp"
+            android:background="@null" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/saveCardView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#83AE7F"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="32dp"
+        app:cardElevation="6dp">
+
+        <TextView
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="SAVE"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

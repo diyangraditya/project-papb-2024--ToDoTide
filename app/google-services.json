@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "403049340896",
+    "firebase_url": "https://todotide-default-rtdb.firebaseio.com",
+    "project_id": "todotide",
+    "storage_bucket": "todotide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403049340896:android:25bf7002578259563a1585",
+        "android_client_info": {
+          "package_name": "rrn.mobile.gm2gptcopy10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW9zPtAgofqZTYWn8MubK47Jiin0F3s0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

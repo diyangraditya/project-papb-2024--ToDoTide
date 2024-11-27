@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GM2GPTCopy10" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#A4D99F</item>
+        <item name="colorSecondary">#83AE7F</item>
+    </style>
+
+    <style name="Theme.GM2GPTCopy10" parent="Base.Theme.GM2GPTCopy10" />
+</resources>
