@@ -21,7 +21,7 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 
-        <activity android:name=".CalendarPage"
+        <activity android:name=".Nar_MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
