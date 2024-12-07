@@ -4,33 +4,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/container_top_bar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <FrameLayout
-        android:id="@+id/container_calendar"
+        android:id="@+id/container_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:layout_marginBottom="0dp"/>
-
-    <FrameLayout
-        android:id="@+id/container_notes"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:layout_marginTop="0dp"
-        />
+        android:layout_weight="8" />
 
     <FrameLayout
         android:id="@+id/container_bot_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
 </LinearLayout>

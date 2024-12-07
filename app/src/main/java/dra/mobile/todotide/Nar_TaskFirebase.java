@@ -4,7 +4,7 @@ public class Nar_TaskFirebase {
     private String id;
     private String task;
 
-    // Constructor kosong diperlukan untuk Firebase
+
     public Nar_TaskFirebase() {
     }
 

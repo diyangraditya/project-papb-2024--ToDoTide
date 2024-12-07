@@ -37,9 +37,12 @@ public class Fiq_RecyclerViewFragment extends Fragment{
     public void updateItem(int position, Fiq_Maps updatedMap) {
         if (mapList != null && position >= 0 && position < mapList.size()) {
             mapList.set(position, updatedMap);
-            mapsAdapter.notifyItemChanged(position);
+            if (mapsAdapter != null) {
+                mapsAdapter.notifyItemChanged(position);
+            }
         }
     }
+
 
     @Nullable
     @Override

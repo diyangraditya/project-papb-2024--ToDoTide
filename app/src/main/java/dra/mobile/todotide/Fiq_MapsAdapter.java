@@ -60,17 +60,6 @@ public class Fiq_MapsAdapter extends RecyclerView.Adapter<Fiq_MapsAdapter.MapsVi
 
         Glide.with(context)
                 .load(mapItem.getImageUrl())
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        return false;
-                    }
-                })
                 .into(holder.uploadedImageView);
 
         holder.ivEdit.setOnClickListener(view -> {

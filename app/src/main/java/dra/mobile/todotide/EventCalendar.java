@@ -6,18 +6,15 @@ public class EventCalendar {
         private String date;
         private String location;
 
-        // No-argument constructor (required by Firebase)
         public Event() {
         }
 
-        // Constructor with parameters
         public Event(String title, String date, String location) {
             this.title = title;
             this.date = date;
             this.location = location;
         }
 
-        // Getters and setters
         public String getTitle() {
             return title;
         }

@@ -58,21 +58,19 @@ public class Fiq_MapsEdit extends AppCompatActivity{
             }
         });
 
-        cvSimpan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String updatedKegiatan = etKegiatan.getText().toString();
-                String updatedLokasi = etLokasi.getText().toString();
+        cvSimpan.setOnClickListener(view -> {
+            String updatedKegiatan = etKegiatan.getText().toString();
+            String updatedLokasi = etLokasi.getText().toString();
 
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("position", position);
-                resultIntent.putExtra("kegiatan", updatedKegiatan);
-                resultIntent.putExtra("lokasi", updatedLokasi);
-                resultIntent.putExtra("imageUrl", currentImageUri != null ? currentImageUri.toString() : imageUrl);
-                setResult(RESULT_OK, resultIntent);
-                finish();
-            }
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("position", position);
+            resultIntent.putExtra("kegiatan", updatedKegiatan);
+            resultIntent.putExtra("lokasi", updatedLokasi);
+            resultIntent.putExtra("imageUrl", currentImageUri != null ? currentImageUri.toString() : imageUrl);
+            setResult(RESULT_OK, resultIntent);
+            finish();
         });
+
 
         imageView4.setOnClickListener(view -> finish());
     }

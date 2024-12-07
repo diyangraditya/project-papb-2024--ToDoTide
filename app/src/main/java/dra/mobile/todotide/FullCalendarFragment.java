@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotesFragment extends Fragment {
+public class FullCalendarFragment extends Fragment{
     private RecyclerView recyclerView;
     private EventAdapterCale eventAdapterCale;
     private List<Event> eventList;
@@ -30,7 +30,8 @@ public class NotesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notes, container, false);
+        View view = inflater.inflate(R.layout.full_fragment_calendar, container, false);
+
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(40));
@@ -92,5 +93,3 @@ public class NotesFragment extends Fragment {
         }
     }
 }
-
-

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class Fiq_NavbarFragment extends Fragment {
+public class Fiq_NavbarFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -23,8 +23,9 @@ public class Fiq_NavbarFragment extends Fragment {
         Button addButton = view.findViewById(R.id.button_add);
 
         addButton.setOnClickListener(v -> {
-            if (getActivity() instanceof Fiq_MainActivity) {
-                ((Fiq_MainActivity) getActivity()).openCreateActivity();
+            Fragment parentFragment = getParentFragment();
+            if (parentFragment instanceof Fiq_MapsFeatureFragment) {
+                ((Fiq_MapsFeatureFragment) parentFragment).openCreateActivity();
             }
         });
     }

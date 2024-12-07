@@ -21,18 +21,15 @@ public class CalendarPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_frag);
 
-        databaseReference = FirebaseDatabase.getInstance(FirebaseURL).getReference();
-
         loadFragment(new TopBarFragment(), R.id.container_top_bar);
-        loadFragment(new CalendarFragment(), R.id.container_calendar);
-        loadFragment(new NotesFragment(), R.id.container_notes);
         loadFragment(new BottomBarFragment(), R.id.container_bot_bar);
+        loadFragment(new FullCalendarFragment(), R.id.container_main);
     }
 
     private void loadFragment(Fragment fragment, int containerId) {
         FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ftranc = fm.beginTransaction();
-        ftranc.replace(containerId, fragment);
-        ftranc.commit();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(containerId, fragment);
+        ft.commit();
     }
 }

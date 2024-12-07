@@ -29,7 +29,7 @@ public class Nar_FragmentListTask extends Fragment {
     private DatabaseReference tasksRef;
 
     public Nar_FragmentListTask() {
-        // Required empty public constructor
+
     }
 
     @Nullable
@@ -38,37 +38,31 @@ public class Nar_FragmentListTask extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.nar_fragment_list_task, container, false);
 
-        // Inisialisasi Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://to-do-tide-default-rtdb.asia-southeast1.firebasedatabase.app/");
         tasksRef = database.getReference("tasks");
 
-        // Inisialisasi komponen UI
         listView = view.findViewById(R.id.listViewTasks);
 
-        // Inisialisasi task list dan adapter
         taskList = new ArrayList<>();
-        adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, taskList);
+        adapter = new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, taskList);
         listView.setAdapter(adapter);
 
-        // Load tasks dari Firebase
         loadTasksFromFirebase();
 
         return view;
     }
 
-    // Method untuk menambah task baru
     public void addNewTask(String task) {
         String taskId = tasksRef.push().getKey();
         Nar_TaskFirebase taskFirebase = new Nar_TaskFirebase(taskId, task);
 
         if (taskId != null) {
             tasksRef.child(taskId).setValue(taskFirebase)
-                    .addOnSuccessListener(aVoid -> Toast.makeText(getContext(), "Task Saved: " + task, Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(getContext(), "Error saving task: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    .addOnSuccessListener(aVoid -> Toast.makeText(requireActivity(), "Task Saved: " + task, Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(requireActivity(), "Error saving task: " + e.getMessage(), Toast.LENGTH_SHORT).show());
         }
     }
 
-    // Method untuk memuat task dari Firebase
     private void loadTasksFromFirebase() {
         tasksRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,7 +79,7 @@ public class Nar_FragmentListTask extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Error loading tasks: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireActivity(), "Error loading tasks: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

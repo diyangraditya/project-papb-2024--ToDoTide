@@ -6,8 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".MapsEditFragment">
+    android:background="#F5F5F5">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/headerCardView"
@@ -38,7 +37,6 @@
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toTopOf="@id/headerCardView"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/tombol_back"
         android:contentDescription="Back Button" />
 
     <com.google.android.material.imageview.ShapeableImageView

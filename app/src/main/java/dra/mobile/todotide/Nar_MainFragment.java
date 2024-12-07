@@ -1,59 +1,58 @@
 package dra.mobile.todotide;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.app.AlertDialog;
-import android.text.InputType;
 import android.widget.EditText;
-import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class Nar_MainActivity extends AppCompatActivity{
+public class Nar_MainFragment extends Fragment {
     private Nar_FragmentListTask fragmentListTask;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.nar_activity_main);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.nar_main_fragment, container, false);
 
-        // Inisialisasi Fragment
         fragmentListTask = new Nar_FragmentListTask();
         loadFragment(fragmentListTask);
 
-        // Tombol kecil untuk menambahkan list task
-        Button btnAddTask = findViewById(R.id.btnAddTask);
+        Button btnAddTask = view.findViewById(R.id.btnAddTask);
         btnAddTask.setOnClickListener(v -> showAddTaskDialog());
+
+        return view;
     }
 
-    // Method untuk memuat fragment
     private void loadFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment);
         fragmentTransaction.commit();
     }
 
-    // Method untuk menampilkan dialog input task
     private void showAddTaskDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Add New Task");
 
-        // Membuat input field
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        final EditText input = new EditText(requireContext());
+        input.setInputType(android.text.InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        // Tombol Save
         builder.setPositiveButton("Save", (dialog, which) -> {
             String task = input.getText().toString();
             if (!task.isEmpty() && fragmentListTask != null) {
-                fragmentListTask.addNewTask(task); // Tambahkan task baru
+                fragmentListTask.addNewTask(task);
             }
         });
 
-        // Tombol Cancel
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
         builder.show();
