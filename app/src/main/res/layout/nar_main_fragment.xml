@@ -34,6 +34,22 @@
                 android:text="Notes"
                 android:textStyle="bold" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAddNotes"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/ic_input_add"
+            android:contentDescription="Add Task" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerNotes"
+            android:layout_width="match_parent"
+            android:layout_height="418dp"
+            android:layout_marginTop="75dp" />
     </FrameLayout>
 
     <FrameLayout
@@ -51,7 +67,7 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="208dp"
+            android:layout_height="418dp"
             android:layout_marginTop="75dp" />
 
         <Button

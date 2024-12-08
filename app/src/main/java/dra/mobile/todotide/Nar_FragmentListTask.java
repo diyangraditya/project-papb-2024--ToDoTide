@@ -19,18 +19,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Nar_FragmentListTask extends Fragment {
 
+    private ListView listViewTasks;
     private ArrayList<String> taskList;
-    private ArrayAdapter<String> adapter;
-    private ListView listView;
+    private ArrayAdapter<String> taskAdapter;
     private DatabaseReference tasksRef;
-
-    public Nar_FragmentListTask() {
-
-    }
 
     @Nullable
     @Override
@@ -38,49 +33,61 @@ public class Nar_FragmentListTask extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.nar_fragment_list_task, container, false);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://to-do-tide-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        tasksRef = database.getReference("tasks");
-
-        listView = view.findViewById(R.id.listViewTasks);
-
+        // Initialize ListView and Firebase Reference
+        listViewTasks = view.findViewById(R.id.listViewTasks);
         taskList = new ArrayList<>();
-        adapter = new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, taskList);
-        listView.setAdapter(adapter);
+        taskAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, taskList);
+        listViewTasks.setAdapter(taskAdapter);
 
+        tasksRef = FirebaseDatabase.getInstance().getReference("tasks");
+
+        // Load tasks from Firebase
         loadTasksFromFirebase();
 
         return view;
     }
 
-    public void addNewTask(String task) {
-        String taskId = tasksRef.push().getKey();
-        Nar_TaskFirebase taskFirebase = new Nar_TaskFirebase(taskId, task);
-
-        if (taskId != null) {
-            tasksRef.child(taskId).setValue(taskFirebase)
-                    .addOnSuccessListener(aVoid -> Toast.makeText(requireActivity(), "Task Saved: " + task, Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(requireActivity(), "Error saving task: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-        }
-    }
-
     private void loadTasksFromFirebase() {
-        tasksRef.addValueEventListener(new ValueEventListener() {
+        tasksRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 taskList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Nar_TaskFirebase task = snapshot.getValue(Nar_TaskFirebase.class);
+                for (DataSnapshot taskSnapshot : snapshot.getChildren()) {
+                    String task = taskSnapshot.getValue(String.class);
                     if (task != null) {
-                        taskList.add(task.getTask());
+                        taskList.add(task);
                     }
                 }
-                adapter.notifyDataSetChanged();
+                taskAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(requireActivity(), "Error loading tasks: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Failed to load tasks: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void addNewTask(String taskContent) {
+        if (tasksRef != null && !taskContent.isEmpty()) {
+            String taskId = tasksRef.push().getKey();
+            if (taskId != null) {
+                tasksRef.child(taskId).setValue(taskContent)
+                        .addOnSuccessListener(aVoid -> {
+                            taskList.add(taskContent);
+                            taskAdapter.notifyDataSetChanged();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(requireContext(), "Failed to add task", Toast.LENGTH_SHORT).show();
+                        });
+            }
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Reload tasks when the fragment is resumed
+        loadTasksFromFirebase();
     }
 }
