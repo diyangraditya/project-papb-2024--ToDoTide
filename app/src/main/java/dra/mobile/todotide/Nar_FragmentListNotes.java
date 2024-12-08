@@ -33,7 +33,6 @@ public class Nar_FragmentListNotes extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.nar_fragment_task_notes, container, false);
 
-        // Initialize ListView and Firebase Reference
         listViewNotes = view.findViewById(R.id.listViewNotes);
         noteList = new ArrayList<>();
         noteAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, noteList);
@@ -41,7 +40,6 @@ public class Nar_FragmentListNotes extends Fragment {
 
         notesRef = FirebaseDatabase.getInstance().getReference("notes");
 
-        // Load data from Firebase
         loadNotesFromFirebase();
 
         return view;
@@ -87,7 +85,6 @@ public class Nar_FragmentListNotes extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        // Reload notes when the fragment is resumed
         loadNotesFromFirebase();
     }
 }

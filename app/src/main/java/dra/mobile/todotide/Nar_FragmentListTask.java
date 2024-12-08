@@ -33,7 +33,6 @@ public class Nar_FragmentListTask extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.nar_fragment_list_task, container, false);
 
-        // Initialize ListView and Firebase Reference
         listViewTasks = view.findViewById(R.id.listViewTasks);
         taskList = new ArrayList<>();
         taskAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, taskList);
@@ -41,7 +40,6 @@ public class Nar_FragmentListTask extends Fragment {
 
         tasksRef = FirebaseDatabase.getInstance().getReference("tasks");
 
-        // Load tasks from Firebase
         loadTasksFromFirebase();
 
         return view;
@@ -87,7 +85,6 @@ public class Nar_FragmentListTask extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        // Reload tasks when the fragment is resumed
         loadTasksFromFirebase();
     }
 }

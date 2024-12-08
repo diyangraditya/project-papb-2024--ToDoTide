@@ -26,21 +26,17 @@ public class Nar_MainFragment extends Fragment {
         fragmentListTask = new Nar_FragmentListTask();
         fragmentListNotes = new Nar_FragmentListNotes();
 
-        // Load List Task Fragment
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, fragmentListTask)
                 .commit();
 
-        // Load Notes Fragment
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainerNotes, fragmentListNotes)
                 .commit();
 
-        // Add Task Button
         Button btnAddTask = view.findViewById(R.id.btnAddTask);
         btnAddTask.setOnClickListener(v -> showAddTaskDialog());
 
-        // Add Note Button
         Button btnAddNotes = view.findViewById(R.id.btnAddNotes);
         btnAddNotes.setOnClickListener(v -> showAddNoteDialog());
 

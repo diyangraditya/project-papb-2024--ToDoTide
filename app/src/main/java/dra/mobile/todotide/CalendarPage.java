@@ -13,9 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class CalendarPage extends AppCompatActivity {
-    private static final String FirebaseURL = "https://to-do-tide-default-rtdb.asia-southeast1.firebasedatabase.app/";
-    private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

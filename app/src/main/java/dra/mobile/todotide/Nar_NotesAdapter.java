@@ -41,7 +41,6 @@ public class Nar_NotesAdapter extends RecyclerView.Adapter<Nar_NotesAdapter.Note
 
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Ensure the ID matches `nar_item_note.xml`
             textViewContent = itemView.findViewById(R.id.textViewContent);
         }
     }
